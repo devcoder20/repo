@@ -5,10 +5,16 @@ header {
   border-bottom: 2px solid black;
 }
 
-h1 {
-  background: gainsboro;
-  padding: 0.4em;
-  margin: 0em -1em 0em -1em;
+img {
+  height: 70px;
+  width: auto;
+}
+
+h4 {
+  font-family: fantasy;
+  background: #e6e6e6;
+  padding: 2em;
+  margin: 0em -1em 0em -2em;
 }
 
 .header a {
@@ -50,5 +56,7 @@ h1 {
 
   .header-right {
     float: none;
+    position: absolute;
+    margin: 1em 0em 0em 45em;
   }
 }

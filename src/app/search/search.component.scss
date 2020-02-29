@@ -1,0 +1,73 @@
+.search {
+  border: 2px solid #007bff;
+  margin: 5rem 0rem 0rem 26rem;
+  overflow: auto;
+  width: 50%;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.search input[type="text"] {
+  border: 0px;
+  width: 67%;
+  padding: 10px 10px;
+  font-variant: normal;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.search input[type="text"]:focus {
+  outline-color: #719ece;
+  box-shadow: 0 0 48em #719ece;
+  padding: 15px 81px;
+}
+
+button {
+  border: 0px;
+  background: none;
+  background-color: #007bff;
+  color: #fff;
+  float: right;
+  padding: 20px;
+  border-radius-top-right: 5px;
+  -moz-border-radius-top-right: 5px;
+  -webkit-border-radius-top-right: 5px;
+  border-radius-bottom-right: 5px;
+  -moz-border-radius-bottom-right: 5px;
+  -webkit-border-radius-bottom-right: 5px;
+  cursor: pointer;
+  font-variant: normal;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (min-width: 150px) and (max-width: 780px) {
+  .search {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+.card{
+    background: #e6e6e6;
+    margin: top;
+    width: 29%;
+    text-align: center;
+    min-height: 12em;
+    border-radius: 5px;
+    margin: 5rem 0rem 0rem 35rem;
+    display: flex;
+    flex-direction: column;
+}
+
+img{
+    height: 7em;
+    width: 10em;
+    border-radius: 50%;
+    position: absolute;
+    margin: 3em 0em 0em 15em;
+}
+.vehicleName{
+    margin: 3em 0em 0em -16em;
+}

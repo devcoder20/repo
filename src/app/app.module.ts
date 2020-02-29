@@ -2,24 +2,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormComponent } from './formA/form/form.component';
+
 import { HeaderComponent } from './header/header.component';
+import { FormComponent } from './formA/form/form.component';
+import { SearchComponent } from './search/search.component';
+import { FinalizeComponent } from './finalize/finalize.component';
+
+const routes: Routes = [
+  { path: 'info', component: FormComponent },
+  { path: 'find', component: SearchComponent },
+  { path: 'final', component: FinalizeComponent },
+  { path: '**', redirectTo: 'info' }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     FormComponent,
-    HeaderComponent
+    SearchComponent,
+    FinalizeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    RouterModule.forRoot(routes)
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
