@@ -1,39 +1,58 @@
-<div class="container">
-  <form action="action_page.php">
+<div class="form-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
     <div class="row">
       <div class="col-75">
         <label [for]="fname">First Name</label><br />
-        <input type="text" [id]="fname" name="firstname" (focus)="isFocus = true" (blur)="isFocus = false" pattern="[a-zA-Z0-9\s]+" required
-          placeholder="First Name" #firstname attr.aria-describedby="{{fname + required}} {{fname + pattern}}"/>
-          <span class= "aria-only" *ngIf="!firstname.dirty" [id]="fname + 'required'">name error</span>
-          
+        <input type="text" formControlName="firstName" [id]="firstName" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" pattern="[a-zA-Z0-9\s]+" required
+          placeholder="First Name" #firstName
+          attr.aria-describedby="{{firstName + required}} {{firstName + pattern}}" />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required" [id]="firstName + 'required'">First Name is required</div>
         </div>
-        <div *ngIf="!firstname.dirty" [id]="fname">do nothing</div>
+      </div>
     </div>
 
     <div class="row">
       <div class="col-75">
         <label for="lname">Last Name</label><br />
-        <input type="text" id="lname" name="lastname" placeholder="Last Name">
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="form-control" required
+          formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-75">
-        <label for="Phone">Phone number</label><br />
-        <input type="tel" id="Phone" name="Phone" placeholder="(123) 456-7890">
+        <label for="Phone">Email</label><br />
+        <input type="email" id="email" placeholder="YourId@email.com" formControlName="email" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-75">
-        <label for="SSN">SSN</label><br />
-        <input type="password" id="SSN" name="SSN" placeholder="xxx-xx-xxxx">
+        <label for="Phone">Phone</label><br />
+        <input type="password" id="phone" placeholder="(123) 456-7890" formControlName="phone" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+          <div *ngIf="f.phone.errors.required">Phone is required</div>
+          <div *ngIf="f.phone.errors.minlength">Phone must be at least 10 digits</div>
+        </div>
       </div>
     </div>
 
     <div class="row">
       <br />
-      <input type="submit" value="Submit">
+      <button type="submit">Submit Info</button>
+
     </div>
   </form>
 </div>
