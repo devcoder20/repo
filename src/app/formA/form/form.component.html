@@ -1,0 +1,39 @@
+<div class="container">
+  <form action="action_page.php">
+
+    <div class="row">
+      <div class="col-75">
+        <label [for]="fname">First Name</label><br />
+        <input type="text" [id]="fname" name="firstname" (focus)="isFocus = true" (blur)="isFocus = false" pattern="[a-zA-Z0-9\s]+" required
+          placeholder="First Name" #firstname attr.aria-describedby="{{fname + required}} {{fname + pattern}}"/>
+          <span class= "aria-only" *ngIf="!firstname.dirty" [id]="fname + 'required'">name error</span>
+          
+        </div>
+        <div *ngIf="!firstname.dirty" [id]="fname">do nothing</div>
+    </div>
+
+    <div class="row">
+      <div class="col-75">
+        <label for="lname">Last Name</label><br />
+        <input type="text" id="lname" name="lastname" placeholder="Last Name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-75">
+        <label for="Phone">Phone number</label><br />
+        <input type="tel" id="Phone" name="Phone" placeholder="(123) 456-7890">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-75">
+        <label for="SSN">SSN</label><br />
+        <input type="password" id="SSN" name="SSN" placeholder="xxx-xx-xxxx">
+      </div>
+    </div>
+
+    <div class="row">
+      <br />
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
