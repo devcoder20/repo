@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './formA/form/form.component';
 import { SearchComponent } from './search/search.component';
 import { FinalizeComponent } from './finalize/finalize.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
   { path: 'info', component: FormComponent },
@@ -30,9 +32,11 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   exports: [RouterModule],
   providers: [],

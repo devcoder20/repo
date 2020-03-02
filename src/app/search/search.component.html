@@ -1,7 +1,18 @@
 <div class="search">
-    <div class="search-form">
-        <input type="text" placeholder="Search..."/>
-        <button type="submit">Search</button>
+  <div class="search-form">
+        <!-- <input type="text" placeholder="Search..." /> -->
+     
+        <form #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
+
+          <input type="text" placeholder="Search"
+                 required 
+                 [(ngModel)]="vimNumber" name="vimNumber"
+                 #pickedName="ngModel">
+          <div *ngIf="!pickedName.valid && pickedName.touched">
+            Enter the Vim Number
+          </div>
+          <button type="submit" >Search</button>
+        </form>
     </div>
 </div>
 
@@ -10,4 +21,11 @@
   Search result:
 
   <img src="/assets/img/merc.png" alt="Car Image"> <span class="vehicleName">{{ vehicle }}</span>
+  <!-- <ul>
+    <li *ngFor= "let item of vehicleObj.data">
+        <img src="/assets/img/merc.png" alt="Car Image"> <span class="vehicleName">{{ vehicle }}</span>
+        <img src= vehicleObj.data.image alt="Car Image"> <span class="vehicleName">{{ vehicle }}</span>
+       </li>
+  </ul> -->
+
 </div>
