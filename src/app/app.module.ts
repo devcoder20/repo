@@ -1,23 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { Routes, RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './formA/form/form.component';
 import { SearchComponent } from './search/search.component';
 import { FinalizeComponent } from './finalize/finalize.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { ContetfulCommonComponent } from './contetfulComp/contetful-common/contetful-common.component';
+
+import { ContentfulService } from './services/contentful/contentful.service';
 
 const routes: Routes = [
   { path: 'info', component: FormComponent },
   { path: 'find', component: SearchComponent },
   { path: 'final', component: FinalizeComponent },
+  { path: 'contentful', component: ContetfulCommonComponent },
   { path: '**', redirectTo: 'info' }
 ];
 
@@ -27,7 +29,8 @@ const routes: Routes = [
     HeaderComponent,
     FormComponent,
     SearchComponent,
-    FinalizeComponent
+    FinalizeComponent,
+    ContetfulCommonComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ const routes: Routes = [
     FormsModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [ContentfulService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

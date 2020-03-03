@@ -1,0 +1,17 @@
+<div>
+  <div class="alert alert-nfo" role="alert" *ngFor="let content of contents">
+    <div class="d-flex flex-wrap flex-xl-nowrap flex-lg-nowrap flex-md-nowrap">
+      <div class="p-2">
+        <a href="{{content.fields.url}}" target="_blank">
+          <img src="{{content.fields.contentImage.fields.file.url}}" alt="Contentful Image" class="rounded" width="196">
+        </a>
+      </div>
+      <div class="p-2">
+        <h5 class="alert-heading">
+          <a href="{{content.fields.url}}" target="_blank">{{content.fields.title}}</a>
+        </h5>
+      </div>
+      <button (click)="goToContetsDetailPage(content.sys.id)" class="btn btn-info">GO</button>
+    </div>
+  </div>
+</div>
