@@ -1,25 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgxMaskModule } from 'ngx-mask';
 import { Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './formA/form/form.component';
 import { SearchComponent } from './search/search.component';
 import { FinalizeComponent } from './finalize/finalize.component';
-import { ContetfulCommonComponent } from './contetfulComp/contetful-common/contetful-common.component';
-
-import { ContentfulService } from './services/contentful/contentful.service';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
   { path: 'info', component: FormComponent },
   { path: 'find', component: SearchComponent },
   { path: 'final', component: FinalizeComponent },
-  { path: 'contentful', component: ContetfulCommonComponent },
   { path: '**', redirectTo: 'info' }
 ];
 
@@ -29,20 +26,24 @@ const routes: Routes = [
     HeaderComponent,
     FormComponent,
     SearchComponent,
-    FinalizeComponent,
-    ContetfulCommonComponent
+    FinalizeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     RouterModule.forRoot(routes),
-    FormsModule
+    HeaderComponent,
+    FormComponent,
+    SearchComponent,
+    FinalizeComponent
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [RouterModule],
-  providers: [ContentfulService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

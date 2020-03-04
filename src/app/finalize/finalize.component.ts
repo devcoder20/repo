@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finalize.component.scss']
 })
 export class FinalizeComponent implements OnInit {
+    name = "Mate";
 
   constructor() { }
 

@@ -22,4 +22,8 @@ describe('FinalizeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should be passs', () => {
+    expect(component.name).toBe("Me");
+  });
 });
